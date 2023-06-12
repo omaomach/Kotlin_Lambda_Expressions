@@ -52,4 +52,13 @@ fun main() {
 //    val msg = fun() { println("You like Joash") }
 //    msg.invoke()
 
+//    val add = {a: Int, b: Int -> a + b}
+//    hof(add)
+    hof({a: Int, b: Int -> a + b})
+
+}
+
+fun hof(addition: (Int, Int) -> Int) {
+    var result = addition(4, 5)
+    println(result)
 }
