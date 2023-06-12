@@ -54,11 +54,24 @@ fun main() {
 
 //    val add = {a: Int, b: Int -> a + b}
 //    hof(add)
-    hof({a: Int, b: Int -> a + b})
+//    hof({a: Int, b: Int -> a + b})
+
+    // Cases Where You Can Move The Lambda Out Parentheses
+    // 1. When the lambda is the only argument
+//    hof { a: Int, b: Int -> a + b }
+
+    //2. When The Lambda is The Last Argument
+    hof2("Joash") { a: Int, b: Int -> a % b }
 
 }
 
-fun hof(addition: (Int, Int) -> Int) {
-    var result = addition(4, 5)
-    println(result)
+
+//fun hof(addition: (Int, Int) -> Int) {
+//    var result = addition(4, 5)
+//    println(result)
+//}
+
+fun hof2(name: String, remainder: (Int, Int) -> Int) {
+    var result = remainder(10, 3)
+    println("Hello $name: $result")
 }
