@@ -32,7 +32,24 @@ fun main() {
 //    val add = fun(a: Int, b: Int): Int { return a + b }
 //    println(add(2, 3))
     // - If the method body has only one statement, we can omit the return keyword and the braces i.e:
-    val add2 = fun(a: Int, b: Int): Int = a + b
-    println(add2(2, 3))
+//    val add2 = fun(a: Int, b: Int): Int = a + b
+//    println(add2(2, 3))
+
+    // Types of Anonymous Functions
+    // 1. With Parameters and Return Types
+//    val multiply = fun(a: Int, b:Int): Int = a * b
+//    println(multiply(3, 8))
+
+    // 2. With Parameters and No Return Types
+//    val divide = fun(a: Int, b: Int): Unit { println(a / b) } // notice that we where the println has been used. This is because we are expecting to get no return value. The Unit keyword is also optional
+//    divide(8, 3)
+
+    // 3. No Parameters but with return values
+//    val name = fun(): String  { return "Joash"}
+//    println(name())
+
+    // 4. No Parameters and no return values
+//    val msg = fun() { println("You like Joash") }
+//    msg.invoke()
 
 }
