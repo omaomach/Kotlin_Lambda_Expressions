@@ -61,7 +61,20 @@ fun main() {
 //    hof { a: Int, b: Int -> a + b }
 
     //2. When The Lambda is The Last Argument
-    hof2("Joash") { a: Int, b: Int -> a % b }
+//    hof2("Joash") { a: Int, b: Int -> a % b }
+
+    // If a lambda expression has only parameter,
+    // we can omit the parameter along with ->
+    // we can access the parameter using "it" identifier - the "it" keyword is a keyword used to refer to the implicit single parameter of a lambda expression or anonymous function
+    hof3 {
+        println("Hi $it")
+    }
+
+    val numbers = listOf<Int>(1,2,3,4,5)
+    println( numbers.filter { numbers -> numbers > 3 })
+
+    // Uding "it"
+    println( numbers.filter { it > 3 })
 
 }
 
@@ -71,7 +84,11 @@ fun main() {
 //    println(result)
 //}
 
-fun hof2(name: String, remainder: (Int, Int) -> Int) {
-    var result = remainder(10, 3)
-    println("Hello $name: $result")
+//fun hof2(name: String, remainder: (Int, Int) -> Int) {
+//    var result = remainder(10, 3)
+//    println("Hello $name: $result")
+//}
+
+fun hof3(name: (String) -> Unit) {
+    name("Joel")
 }
