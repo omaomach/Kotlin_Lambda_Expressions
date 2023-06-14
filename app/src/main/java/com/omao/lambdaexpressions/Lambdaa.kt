@@ -87,7 +87,11 @@ fun main() {
     // Returning a value from an Anonymous Function inside a HOF
     println(hof5()())
 
+    // Returning a Regular Function From a HOF
+    println(hof6()())
 
+    // Passing a Regular Function to HOF
+    hof7(::messageFun) // :: - this is the reference operator
 
 }
 
@@ -121,4 +125,17 @@ fun hof5(): () -> String {  // when you have no parameters include the function 
         return "Higher Order Function With No Parameters (hof5)"
     }
     return msg
+}
+
+fun hof6(): () -> String {
+    return ::messageFun
+}
+
+// Regular Function
+fun messageFun(): String {
+    return "This message comes from a Regular function"
+}
+
+fun hof7(regularFun: () -> String) {
+    println(regularFun())
 }
