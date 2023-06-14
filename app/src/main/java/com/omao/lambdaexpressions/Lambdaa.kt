@@ -76,7 +76,18 @@ fun main() {
     // Using "it"
 //    println( numbers.filter { it > 3 })
 
-    reverseString("Hello") { it.reversed() }
+//    reverseString("Hello") { it.reversed() }
+
+    // Passing Anonymous Function as a Parameter to HOF
+    val subtr = fun(a: Int, b:Int): Int {
+        return  a - b
+    }
+    hof4(subtr)
+
+    // Returning a value from an Anonymous Function inside a HOF
+    println(hof5()())
+
+
 
 }
 
@@ -95,7 +106,19 @@ fun main() {
 //    name("Joel")
 //}
 
-fun reverseString(str: String, myLambda: (String) -> String) {
-    var result = myLambda(str)
+//fun reverseString(str: String, myLambda: (String) -> String) {
+//    var result = myLambda(str)
+//    println(result)
+//}
+
+fun hof4(subtract: (Int, Int) -> Int) {
+    val result = subtract(29, 10)
     println(result)
+}
+
+fun hof5(): () -> String {  // when you have no parameters include the function method
+    val msg = fun() :String {  // here
+        return "Higher Order Function With No Parameters (hof5)"
+    }
+    return msg
 }
