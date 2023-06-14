@@ -66,15 +66,17 @@ fun main() {
     // If a lambda expression has only parameter,
     // we can omit the parameter along with ->
     // we can access the parameter using "it" identifier - the "it" keyword is a keyword used to refer to the implicit single parameter of a lambda expression or anonymous function
-    hof3 {
-        println("Hi $it")
-    }
+//    hof3 {
+//        println("Hi $it")
+//    }
 
-    val numbers = listOf<Int>(1,2,3,4,5)
-    println( numbers.filter { numbers -> numbers > 3 })
+//    val numbers = listOf<Int>(1,2,3,4,5)
+//    println( numbers.filter { numbers -> numbers > 3 })
 
-    // Uding "it"
-    println( numbers.filter { it > 3 })
+    // Using "it"
+//    println( numbers.filter { it > 3 })
+
+    reverseString("Hello") { it.reversed() }
 
 }
 
@@ -89,6 +91,11 @@ fun main() {
 //    println("Hello $name: $result")
 //}
 
-fun hof3(name: (String) -> Unit) {
-    name("Joel")
+//fun hof3(name: (String) -> Unit) {
+//    name("Joel")
+//}
+
+fun reverseString(str: String, myLambda: (String) -> String) {
+    var result = myLambda(str)
+    println(result)
 }
